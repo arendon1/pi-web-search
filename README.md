@@ -4,10 +4,9 @@ A [pi](https://github.com/badlogic/pi-mono) extension that adds a `web_search` t
 
 ## What it does
 
-Registers one model-callable tool and one slash command:
+Registers one model-callable tool:
 
-- **`web_search(query, max_results?, backend?)`** — search the public web and return a numbered markdown list of results.
-- **`/websearch`** — show which providers are configured (keys are masked) and where each key was resolved from.
+- **`web_search(query, max_results?, backend?)`** — search the public web and return a numbered markdown list of results. The agent calls this autonomously when it needs current information; you do not invoke it explicitly.
 
 ## Install
 

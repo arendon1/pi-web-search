@@ -17,7 +17,7 @@
 
 import { defineTool, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type, type Static } from "typebox";
-import { availableProviders, maskResolvedKeys, resolveKeys, type ProviderName } from "./config.ts";
+import { availableProviders, resolveKeys, type ProviderName } from "./config.ts";
 import { formatResults, noKeysMessage } from "./format.ts";
 import { createExaProvider } from "./providers/exa.ts";
 import { createTavilyProvider } from "./providers/tavily.ts";
@@ -222,19 +222,4 @@ const webSearchTool = defineTool({
 
 export default function (pi: ExtensionAPI) {
 	pi.registerTool(webSearchTool);
-
-	pi.registerCommand("websearch", {
-		description: "Show resolved API keys (masked) and their source for web_search.",
-		handler: async (_args, ctx) => {
-			const keys = await resolveKeys(ctx.cwd);
-			const masked = maskResolvedKeys(keys);
-			const lines: string[] = [];
-			lines.push("web_search configuration:");
-			lines.push(`  exa:    ${masked.exa}${keys.exa ? `  (${keys.exa.source})` : ""}`);
-			lines.push(`  tavily: ${masked.tavily}${keys.tavily ? `  (${keys.tavily.source})` : ""}`);
-			lines.push("");
-			lines.push("Resolution order: process.env → cwd/.env → ~/.pi/agent/.env");
-			ctx.ui.notify(lines.join("\n"), "info");
-		},
-	});
 }
