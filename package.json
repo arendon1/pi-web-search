@@ -1,0 +1,51 @@
+{
+  "name": "pi-web-search",
+  "version": "0.1.0",
+  "description": "pi web_search tool backed by Exa and Tavily with .env-aware key resolution",
+  "author": "Odin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arendon1/pi-web-search.git"
+  },
+  "homepage": "https://github.com/arendon1/pi-web-search#readme",
+  "bugs": {
+    "url": "https://github.com/arendon1/pi-web-search/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-extension",
+    "web-search",
+    "exa",
+    "tavily",
+    "search"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.74.0"
+  },
+  "dependencies": {
+    "typebox": "^1.1.24"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test --experimental-strip-types --no-warnings test/*.test.ts",
+    "test:watch": "node --test --experimental-strip-types --watch test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src/ test/",
+    "lint:fix": "biome check --fix src/ test/",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  }
+}
