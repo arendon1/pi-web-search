@@ -26,10 +26,8 @@
     "node": ">=18"
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": ">=0.74.0"
-  },
-  "dependencies": {
-    "typebox": "^1.1.24"
+    "@earendil-works/pi-coding-agent": ">=0.74.0",
+    "typebox": "*"
   },
   "scripts": {
     "build": "tsc",
