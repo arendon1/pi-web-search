@@ -1,6 +1,6 @@
 {
   "name": "pi-web-search",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "pi web_search tool backed by Exa and Tavily with .env-aware key resolution",
   "author": "Odin",
   "license": "MIT",
